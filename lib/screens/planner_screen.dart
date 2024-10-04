@@ -57,20 +57,6 @@ class _PlannerScreenState extends State<PlannerScreen> {
       timeEnd: "09.30",
       isDone: true,
     ),
-    Meeting(
-      title: "Client Presentation",
-      subtitle: "Presenting project updates to the client",
-      timeStart: "13.00",
-      timeEnd: "14.30",
-      isDone: true,
-    ),
-    Meeting(
-      title: "Sprint Retrospective",
-      subtitle: "Discussing what went well and what can be improved",
-      timeStart: "11.00",
-      timeEnd: "12.00",
-      isDone: true,
-    ),
   ];
 
   void _toggleMeeting(int index, {bool isDoneList = false}) {
@@ -227,23 +213,23 @@ class _PlannerScreenState extends State<PlannerScreen> {
                                 255, 92, 92, 92)), // Label color
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                               color: const Color.fromARGB(255, 109, 109,
                                   109)), // Change this to your desired color
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                               color: Colors.blue), // Color when focused
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
-                          borderSide: BorderSide(
+                          borderSide:const BorderSide(
                               color: Colors.blue), // Color when enabled
                         ),
                         disabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                               color: Colors.grey), // Color when disabled
                         ),
                       ),
@@ -389,12 +375,35 @@ class _PlannerScreenState extends State<PlannerScreen> {
                       );
                     }).toList(),
                     const SizedBox(height: 24),
-                    Text(
-                      "Done",
-                      style: GoogleFonts.urbanist(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          "------------------",
+                          style: GoogleFonts.urbanist(
+                            fontSize: 16,
+                            color: const Color.fromARGB(96, 0, 0, 0),
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Text(
+                          "Done",
+                          style: GoogleFonts.urbanist(
+                            fontSize: 16,
+                            color: const Color.fromARGB(96, 0, 0, 0),
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Text(
+                          "-------------------",
+                          style: GoogleFonts.urbanist(
+                            fontSize: 16,
+                            color: const Color.fromARGB(96, 0, 0, 0),
+                            fontWeight: FontWeight.w700,
+                          ),
+                        )
+                      ],
                     ),
                     const SizedBox(height: 16),
                     ...meetingsDone.asMap().entries.map((entry) {
